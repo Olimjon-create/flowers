@@ -1,10 +1,87 @@
 import React, { useState } from "react";
-import { useRouter } from "next/router"; // Import useRouter from next/router
+import { useRouter } from "next/router";
 import "../styles/Leaf.css";
 
-function Leaf() {
-  const router = useRouter(); // Initialize useRouter hook
+function Section(props) {
+  const { notCard, handleRemove, handleBtn } = props;
 
+  return (
+    <>
+      <div className="container">
+        <h1>Корзина</h1>
+        <div className="new">
+          <table>
+            <thead>
+              <tr>
+                <th>Название</th>
+                <th>Стоимость</th>
+                <th>Количество</th>
+                <th>Итого</th>
+              </tr>
+            </thead>
+            <tbody>
+              {notCard.map((item, index) => (
+                <tr key={index}>
+                  <td>
+                    <img src={item.imgSrc} alt={item.name} />
+                    {item.name}
+                  </td>
+                  <td>{item.count} ₽</td>
+                  <td>
+                    <button
+                      onClick={() => handleBtn(item.id, "plus")}
+                      className="plus"
+                    >
+                      +{" "}
+                    </button>
+                    <span>{item.num}</span>
+                    <button
+                      onClick={() => handleBtn(item.id, "minus")}
+                      className="minus"
+                    >
+                      -{" "}
+                    </button>
+                  </td>
+                  <td>{item.count * item.num} </td>{" "}
+                  <td>
+                    <button
+                      onClick={() => handleRemove(item.id)}
+                      className="remove"
+                    >
+                      ✖
+                    </button>
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+            <div className="Inputs">
+              <input type="text" placeholder="Name" />
+              <input className="input_two" type="text" placeholder="CardName" />
+            </div>
+          </table>
+        </div>
+      </div>
+      <div className="Prices">
+        <div className="prices_left">
+          <h1 className="smell_text">Сумма</h1>
+          <hr className="nav" />
+          <h2 className="smell_tex2">Скидка</h2>
+          <hr className="navtwo" />
+          <h3 className="smell_tex3">К оплате</h3>
+        </div>
+        <div className="prices_right">
+          <p className="price_text1">4 550 ₽</p>
+          <p className="price_text2">— 250 ₽</p>
+          <p className="price_text3">4 200 ₽</p>
+          <button className="btn_type"> ПЕРЕЙТИ К ОФОРМЛЕНИЮ</button>
+        </div>
+      </div>
+    </>
+  );
+}
+
+function Leaf() {
+  const router = useRouter();
   const arr = [
     {
       id: 1,
@@ -52,7 +129,10 @@ function Leaf() {
   const handleSubmit = (id) => {
     console.log("Form submitted for id:", id);
     console.log(formData[id]);
-    router.push("/product");
+
+    setTimeout(() => {
+      router.push("/product");
+    });
   };
 
   return (
@@ -125,4 +205,5 @@ function Leaf() {
     </div>
   );
 }
+
 export default Leaf;

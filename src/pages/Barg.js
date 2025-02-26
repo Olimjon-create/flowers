@@ -1,5 +1,4 @@
 import Leaf from "@/components/Leaf";
-
 import React from "react";
 function Barg() {
   return (
