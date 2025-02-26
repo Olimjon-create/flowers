@@ -1,0 +1,128 @@
+import React, { useState } from "react";
+import { useRouter } from "next/router"; // Import useRouter from next/router
+import "../styles/Leaf.css";
+
+function Leaf() {
+  const router = useRouter(); // Initialize useRouter hook
+
+  const arr = [
+    {
+      id: 1,
+      title: "Get Started Now",
+      inputTitle: "Name",
+      input: "Enter your email",
+      password: "Password",
+      button: "Signup",
+      img: "/leafs.png",
+    },
+    {
+      id: 2,
+      title: "Get Started Now",
+      inputTitle: "Name",
+      input: "Enter your email",
+      password: "Password",
+      button: "Signup",
+      img: "/leafs.png",
+    },
+  ];
+
+  const [formData, setFormData] = useState(
+    arr.reduce((acc, item) => {
+      acc[item.id] = {
+        name: "",
+        email: "",
+        password: "",
+        isChecked: true,
+      };
+      return acc;
+    }, {})
+  );
+
+  const handleChange = (event, id) => {
+    const { name, value, type, checked } = event.target;
+    setFormData((prevState) => ({
+      ...prevState,
+      [id]: {
+        ...prevState[id],
+        [name]: type === "checkbox" ? checked : value,
+      },
+    }));
+  };
+
+  const handleSubmit = (id) => {
+    console.log("Form submitted for id:", id);
+    console.log(formData[id]);
+    router.push("/product");
+  };
+
+  return (
+    <div>
+      {arr.map((item) => (
+        <div key={item.id} className="leaf">
+          <div className="leaf_left">
+            <h1 className="text">{item.title}</h1>
+            <h2 className="text2">{item.inputTitle}</h2>
+            <input
+              className="input_1"
+              type="text"
+              name="name"
+              value={formData[item.id].name}
+              onChange={(e) => handleChange(e, item.id)}
+              placeholder="Enter your name"
+            />
+            <h2 className="text3">Email address</h2>
+            <input
+              className="input_2"
+              type="email"
+              name="email"
+              value={formData[item.id].email}
+              onChange={(e) => handleChange(e, item.id)}
+              placeholder="Enter your email"
+            />
+            <h2 className="text4">Password</h2>
+            <input
+              className="input_3"
+              type="password"
+              name="password"
+              value={formData[item.id].password}
+              onChange={(e) => handleChange(e, item.id)}
+              placeholder="Enter your password"
+            />
+            <div className="img_text">
+              <input
+                type="checkbox"
+                name="isChecked"
+                checked={formData[item.id].isChecked}
+                onChange={(e) => handleChange(e, item.id)}
+              />
+              <h1 className="text5">
+                I agree to the <a href="#">terms & policy</a>
+              </h1>
+            </div>
+            <button onClick={() => handleSubmit(item.id)} className="btn">
+              {item.button}
+            </button>
+            <hr className="nav" />
+            <div className="btn_input">
+              <button className="btn2">
+                <img className="image_2" src="/apple.png" alt="Apple" />
+                Sign in with Apple
+              </button>
+              <button className="btn2">
+                <img className="image_2" src="/google.png" alt="Google" />
+                Sign in with Google
+              </button>
+            </div>
+            <h3 className="text_7">
+              Have an account? <span style={{ color: "blue" }}>Sign In</span>
+            </h3>
+          </div>
+          <div className="leaf_right">
+            <img className="img_4" src={item.img} alt="Leaf" />
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+export default Leaf;

@@ -1,0 +1,150 @@
+/* body {
+  font-family: sans-serif;
+  background-color: #f5faf7;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  background: #f4f4f4;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 50px;
+}
+
+table {
+  width: 100%;
+}
+
+th,
+td {
+  padding: 12px;
+  font-size: 16px;
+}
+th:hover {
+  transition: 0.2s;
+  background-color: #eee;
+  color: #000;
+}
+
+td img {
+  width: 50px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+td img:hover {
+  box-shadow: 2px 3px 3px 2px #000;
+}
+button {
+  border: none;
+  cursor: pointer;
+  padding: 5px 10px;
+  margin: 0 5px;
+}
+
+button.plus {
+  background: #eee;
+  font-size: 16px;
+}
+button.plus:hover {
+  background-color: #ffff;
+  color: #000;
+  transition: 0.2s;
+  border-radius: 30px;
+}
+button.minus {
+  background: #eee;
+  font-size: 16px;
+}
+button.minus:hover {
+  background-color: #ffff;
+  color: #000;
+  transition: 0.2s;
+  border-radius: 50px;
+}
+button.remove {
+  background: #000;
+  color: white;
+  font-size: 16px;
+}
+button.remove:hover {
+  background-color: #ffff;
+  color: #000;
+}
+
+button.continue {
+  margin: 20px auto;
+  padding: 10px 20px;
+  background: #28a745;
+  color: white;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button.continue:hover {
+  background: #218838;
+}
+
+.line {
+  width: 0;
+  height: 30px;
+}
+
+.Prices {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  gap: 30px;
+}
+.price_text1 {
+  margin-top: 40px;
+}
+.price_text2 {
+  margin-top: 40px;
+}
+
+.price_text3 {
+  margin-top: 40px;
+}
+
+.btn_type {
+  width: 280px;
+  height: 45px;
+  background-color: #f05a00;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #f4f4f4;
+  font-family: sans-serif;
+}
+.btn_type:hover {
+  background-color: #ffff;
+  color: #000;
+  transition: 0.6s;
+}
+.Inputs {
+  margin: 30px;
+}
+input {
+  width: 200px;
+  height: 40px;
+  background-color: #000;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  font-family: sans-serif;
+  font-weight: 300;
+  text-align: center;
+  border-radius: 30px;
+}
+input:hover {
+  background-color: #eee;
+  color: #f4f4f4;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.input_two {
+  margin-left: 20px;
+} */
