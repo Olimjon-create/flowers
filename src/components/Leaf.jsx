@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { useRouter } from "next/router";
 import "../styles/Leaf.css";
-
-function Section(props) {
+export function Section(props) {
   const { notCard, handleRemove, handleBtn } = props;
-
   return (
     <>
       <div className="container">
@@ -79,7 +77,6 @@ function Section(props) {
     </>
   );
 }
-
 function Leaf() {
   const router = useRouter();
   const arr = [
@@ -102,7 +99,6 @@ function Leaf() {
       img: "/leafs.png",
     },
   ];
-
   const [formData, setFormData] = useState(
     arr.reduce((acc, item) => {
       acc[item.id] = {
@@ -125,11 +121,9 @@ function Leaf() {
       },
     }));
   };
-
   const handleSubmit = (id) => {
     console.log("Form submitted for id:", id);
     console.log(formData[id]);
-
     setTimeout(() => {
       router.push("/product");
     });
@@ -205,5 +199,4 @@ function Leaf() {
     </div>
   );
 }
-
 export default Leaf;
